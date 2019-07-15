@@ -1,0 +1,12 @@
+{
+  "name": "plsql-j-utildate",
+  "theme": "syntax",
+  "version": "0.0.1",
+  "description": "Package PLSQL util dates",
+  "keywords": [
+    "plsql",
+    "package"
+  ],
+  "repository": "https://github.com/jpromocion/plsql-j-utildate",
+  "license": "GNU"
+}
