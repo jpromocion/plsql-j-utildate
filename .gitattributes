@@ -1,4 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-project-pldoc/* linguist-documentation
+pldoc/* linguist-documentation
