@@ -1,0 +1,584 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE APPLICATION SYSTEM "application.dtd">
+<APPLICATION NAME="plsql-j-utildate">
+  <PACKAGE_BODY NAME="UTILDATE" SCHEMA="">
+    <FUNCTION NAME="TODAY">
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="12" END_LINE="6" LINES="4" START_COLUMN="12" START_LINE="3"/>
+    </FUNCTION>
+    <FUNCTION NAME="DAYSBETWEENDATES">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="23" END_LINE="12" LINES="5" START_COLUMN="12" START_LINE="8"/>
+    </FUNCTION>
+    <FUNCTION NAME="BUSINESSDAYSBETWEENDATES">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="31" END_LINE="40" LINES="27" START_COLUMN="12" START_LINE="14"/>
+    </FUNCTION>
+    <FUNCTION NAME="NEXTDATEBUSINESSDAY">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="DAYS" TYPE="NUMBER"/>
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="26" END_LINE="63" LINES="22" START_COLUMN="12" START_LINE="42"/>
+    </FUNCTION>
+    <FUNCTION NAME="MONTHSBETWEENDATES">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="25" END_LINE="69" LINES="5" START_COLUMN="12" START_LINE="65"/>
+    </FUNCTION>
+    <FUNCTION NAME="YEARSBETWEENDATES">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="24" END_LINE="75" LINES="5" START_COLUMN="12" START_LINE="71"/>
+    </FUNCTION>
+    <FUNCTION NAME="EXACTYEARSBETWEENDATES">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="29" END_LINE="118" LINES="42" START_COLUMN="12" START_LINE="77"/>
+    </FUNCTION>
+    <FUNCTION NAME="AGE">
+      <ARGUMENT MODE="IN" NAME="BIRTHDATE" TYPE="DATE"/>
+      <ARGUMENT DEFAULT="SYSDATE" MODE="IN" NAME="CHECKDATE" TYPE="DATE"/>
+      <RETURN TYPE="PLS_INTEGER"/>
+      <SUMMARY END_COLUMN="10" END_LINE="125" LINES="5" START_COLUMN="12" START_LINE="121"/>
+    </FUNCTION>
+    <FUNCTION NAME="DATESTRING">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <RETURN TYPE="VARCHAR2"/>
+      <SUMMARY END_COLUMN="17" END_LINE="131" LINES="5" START_COLUMN="12" START_LINE="127"/>
+    </FUNCTION>
+    <FUNCTION NAME="ADDYEARS">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="NUMYEARS" TYPE="NUMBER"/>
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="15" END_LINE="137" LINES="5" START_COLUMN="12" START_LINE="133"/>
+    </FUNCTION>
+    <FUNCTION NAME="SEMESTERDATE">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="19" END_LINE="143" LINES="5" START_COLUMN="12" START_LINE="139"/>
+    </FUNCTION>
+    <FUNCTION NAME="TRIMESTERDATE">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="20" END_LINE="149" LINES="5" START_COLUMN="12" START_LINE="145"/>
+    </FUNCTION>
+    <FUNCTION NAME="NUMBERTOHOUR">
+      <ARGUMENT MODE="IN" NAME="NUM" TYPE="NUMBER"/>
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="19" END_LINE="162" LINES="12" START_COLUMN="12" START_LINE="151"/>
+    </FUNCTION>
+    <FUNCTION NAME="HOURTONUMBER">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="19" END_LINE="176" LINES="13" START_COLUMN="12" START_LINE="164"/>
+    </FUNCTION>
+    <FUNCTION NAME="SECONDTODAYS">
+      <ARGUMENT MODE="IN" NAME="SECONDS" TYPE="NUMBER"/>
+      <RETURN TYPE="NUMBER"/>
+      <SUMMARY END_COLUMN="19" END_LINE="182" LINES="5" START_COLUMN="12" START_LINE="178"/>
+    </FUNCTION>
+    <FUNCTION NAME="DATEINRANGE">
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="STARDATE" TYPE="DATE"/>
+      <ARGUMENT MODE="IN" NAME="ENDDATE" TYPE="DATE"/>
+      <RETURN TYPE="BOOLEAN"/>
+      <SUMMARY END_COLUMN="18" END_LINE="194" LINES="11" START_COLUMN="12" START_LINE="184"/>
+    </FUNCTION>
+    <FUNCTION NAME="GETEASTERSUNDAY">
+      <ARGUMENT MODE="IN" NAME="YEAR" TYPE="NUMBER"/>
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="22" END_LINE="251" LINES="56" START_COLUMN="12" START_LINE="196"/>
+    </FUNCTION>
+    <FUNCTION NAME="GETSTARTEASTERHOLIDAYS">
+      <ARGUMENT MODE="IN" NAME="YEAR" TYPE="NUMBER"/>
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="29" END_LINE="259" LINES="7" START_COLUMN="12" START_LINE="253"/>
+    </FUNCTION>
+    <FUNCTION NAME="GETENDEASTERHOLIDAYS">
+      <ARGUMENT MODE="IN" NAME="YEAR" TYPE="NUMBER"/>
+      <RETURN TYPE="DATE"/>
+      <SUMMARY END_COLUMN="27" END_LINE="267" LINES="7" START_COLUMN="12" START_LINE="261"/>
+    </FUNCTION>
+    <SUMMARY END_COLUMN="13" END_LINE="269" LINES="269" START_COLUMN="32" START_LINE="1"/>
+  </PACKAGE_BODY>
+  <PACKAGE NAME="UTILDATE" SCHEMA="">
+    <FUNCTION NAME="TODAY">
+      <COMMENT_FIRST_LINE><![CDATA[ Return current day truncate
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return current day truncate
+]]></COMMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="29" END_LINE="7" LINES="1" START_COLUMN="12" START_LINE="7"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="DAYSBETWEENDATES">
+      <COMMENT_FIRST_LINE><![CDATA[ Return number of days between two dates
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return number of days between two dates
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Lower date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE">
+        <COMMENT><![CDATA[Upper date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Lower date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date2 Upper date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="17" LINES="2" START_COLUMN="12" START_LINE="16"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="BUSINESSDAYSBETWEENDATES">
+      <COMMENT_FIRST_LINE><![CDATA[ Return number of business days between two dates
+ business day: Monday to Friday
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return number of business days between two dates
+ business day: Monday to Friday
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Lower date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE">
+        <COMMENT><![CDATA[Upper date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Lower date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date2 Upper date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="28" LINES="2" START_COLUMN="12" START_LINE="27"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="NEXTDATEBUSINESSDAY">
+      <COMMENT_FIRST_LINE><![CDATA[ Return next date after add number of business days
+ business day: Monday to Friday
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return next date after add number of business days
+ business day: Monday to Friday
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="DAYS" TYPE="NUMBER">
+        <COMMENT><![CDATA[days add. negative -> decrease]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[days days add. negative -> decrease]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="14" END_LINE="39" LINES="2" START_COLUMN="12" START_LINE="38"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="MONTHSBETWEENDATES">
+      <COMMENT_FIRST_LINE><![CDATA[ Return months between two dates
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return months between two dates
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Lower date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE">
+        <COMMENT><![CDATA[Upper date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Lower date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date2 Upper date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="49" LINES="2" START_COLUMN="12" START_LINE="48"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="YEARSBETWEENDATES">
+      <COMMENT_FIRST_LINE><![CDATA[ Return years between two dates
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return years between two dates
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Lower date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE">
+        <COMMENT><![CDATA[Upper date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Lower date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date2 Upper date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="59" LINES="2" START_COLUMN="12" START_LINE="58"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="EXACTYEARSBETWEENDATES">
+      <COMMENT_FIRST_LINE><![CDATA[ Return years (accuracy) between two dates
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return years (accuracy) between two dates
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Lower date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="DATE2" TYPE="DATE">
+        <COMMENT><![CDATA[Upper date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Lower date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date2 Upper date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="69" LINES="2" START_COLUMN="12" START_LINE="68"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="AGE">
+      <COMMENT_FIRST_LINE><![CDATA[ Return age (integer) of person
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return age (integer) of person
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="BIRTHDATE" TYPE="DATE">
+        <COMMENT><![CDATA[birth date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT DEFAULT="SYSDATE" MODE="IN" NAME="CHECKDATE" TYPE="DATE">
+        <COMMENT><![CDATA[check date. Defautl: today]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="PLS_INTEGER">
+        <COMMENT><![CDATA[Edad (entero)]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[birthDate birth date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[checkDate check date. Defautl: today]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[Edad (entero)]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="21" END_LINE="79" LINES="2" START_COLUMN="12" START_LINE="78"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="DATESTRING">
+      <COMMENT_FIRST_LINE><![CDATA[ Return string date: DD of Mes of YYYY
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return string date: DD of Mes of YYYY
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="VARCHAR2">
+        <COMMENT><![CDATA[Date like DD of Mes of YYYY]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[Date like DD of Mes of YYYY]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="18" END_LINE="88" LINES="2" START_COLUMN="12" START_LINE="87"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="ADDYEARS">
+      <COMMENT_FIRST_LINE><![CDATA[ Add years to date
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Add years to date
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="NUMYEARS" TYPE="NUMBER">
+        <COMMENT><![CDATA[Number of years]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[numYears Number of years]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="14" END_LINE="98" LINES="2" START_COLUMN="12" START_LINE="97"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="SEMESTERDATE">
+      <COMMENT_FIRST_LINE><![CDATA[ Return number of semester of a date
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return number of semester of a date
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT><![CDATA[Semester number: 1,2]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[Semester number: 1,2]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="107" LINES="2" START_COLUMN="12" START_LINE="106"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="TRIMESTERDATE">
+      <COMMENT_FIRST_LINE><![CDATA[ Return number of trimester of a date
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return number of trimester of a date
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Date]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT><![CDATA[trimester number: 1,2,3,4]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[trimester number: 1,2,3,4]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="116" LINES="2" START_COLUMN="12" START_LINE="115"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="NUMBERTOHOUR">
+      <COMMENT_FIRST_LINE><![CDATA[ Convert a decimal number to 24 hours
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Convert a decimal number to 24 hours
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="NUM" TYPE="NUMBER">
+        <COMMENT><![CDATA[Decimal number]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT><![CDATA[Hour of day (2,5 > 02:30). Return like sysdate]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[num Decimal number]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[Hour of day (2,5 > 02:30). Return like sysdate]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="14" END_LINE="125" LINES="2" START_COLUMN="12" START_LINE="124"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="HOURTONUMBER">
+      <COMMENT_FIRST_LINE><![CDATA[ Convert a 24 hours to decimal number
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Convert a 24 hours to decimal number
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE"/>
+      <RETURN TYPE="NUMBER">
+        <COMMENT><![CDATA[Decimal number(02:30 -> 2,5).]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[num Date with 24 hour]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[Decimal number(02:30 -> 2,5).]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="134" LINES="2" START_COLUMN="12" START_LINE="133"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="SECONDTODAYS">
+      <COMMENT_FIRST_LINE><![CDATA[ Return numer of days for seconds
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return numer of days for seconds
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="SECONDS" TYPE="NUMBER">
+        <COMMENT><![CDATA[seconds]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="NUMBER">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[seconds seconds]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="16" END_LINE="143" LINES="2" START_COLUMN="12" START_LINE="142"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="DATEINRANGE">
+      <COMMENT_FIRST_LINE><![CDATA[ Check a date in range
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Check a date in range
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="DATE1" TYPE="DATE">
+        <COMMENT><![CDATA[Check date]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="STARDATE" TYPE="DATE">
+        <COMMENT><![CDATA[start date in range]]></COMMENT>
+      </ARGUMENT>
+      <ARGUMENT MODE="IN" NAME="ENDDATE" TYPE="DATE">
+        <COMMENT><![CDATA[end date in range]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="BOOLEAN">
+        <COMMENT><![CDATA[TRUE if it's in a range, FALSE otherwise]]></COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[date1 Check date]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[starDate start date in range]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[endDate end date in range]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT><![CDATA[TRUE if it's in a range, FALSE otherwise]]></COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="17" END_LINE="154" LINES="2" START_COLUMN="12" START_LINE="153"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="GETEASTERSUNDAY">
+      <COMMENT_FIRST_LINE><![CDATA[ Return the Easter Sunday of Easter Holidays
+ for the parameter year
+]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return the Easter Sunday of Easter Holidays
+ for the parameter year
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="YEAR" TYPE="NUMBER">
+        <COMMENT><![CDATA[year]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[year year]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="14" END_LINE="164" LINES="2" START_COLUMN="12" START_LINE="163"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="GETSTARTEASTERHOLIDAYS">
+      <COMMENT_FIRST_LINE><![CDATA[ Return start date of Easter Holidays.]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return start date of Easter Holidays.
+ Monday before Easter Sunday.
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="YEAR" TYPE="NUMBER">
+        <COMMENT><![CDATA[year]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[year year]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="14" END_LINE="174" LINES="2" START_COLUMN="12" START_LINE="173"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <FUNCTION NAME="GETENDEASTERHOLIDAYS">
+      <COMMENT_FIRST_LINE><![CDATA[ Return end date of Easter Holidays.]]></COMMENT_FIRST_LINE>
+      <COMMENT><![CDATA[ Return end date of Easter Holidays.
+ Sunday after Easter Sunday.
+]]></COMMENT>
+      <ARGUMENT MODE="IN" NAME="YEAR" TYPE="NUMBER">
+        <COMMENT><![CDATA[year]]></COMMENT>
+      </ARGUMENT>
+      <RETURN TYPE="DATE">
+        <COMMENT>
+        </COMMENT>
+      </RETURN>
+      <TAG TYPE="@PARAM">
+        <COMMENT><![CDATA[year year]]></COMMENT>
+      </TAG>
+      <TAG TYPE="@RETURN">
+        <COMMENT>
+        </COMMENT>
+      </TAG>
+      <SUMMARY END_COLUMN="14" END_LINE="184" LINES="2" START_COLUMN="12" START_LINE="183"/>
+    </FUNCTION>
+    <PRAGMA NAME="RESTRICT_REFERENCES"/>
+    <SUMMARY END_COLUMN="13" END_LINE="188" LINES="188" START_COLUMN="27" START_LINE="1"/>
+  </PACKAGE>
+  <GENERATOR>
+    <OBJECTS>
+      <PROCESSED COUNT="2"/>
+      <SKIPPED COUNT="0"/>
+    </OBJECTS>
+    <CREATED DATE="21/11/19" TIME="13:16"/>
+    <SETTINGS DEFAULT_KEYWORDS_CASE="UPPER" DEFAULT_NAMES_CASE="UPPER" IGNORE_INFORMAL_COMMENTS="FALSE" INPUT_ENCODING="ISO-8859-15" KEYWORDS_TO_DEFAULT_CASE="TRUE" KEYWORDS_TO_LOWER_CASE="FALSE" KEYWORDS_TO_UPPER_CASE="FALSE" NAMES_TO_DEFAULT_CASE="TRUE" NAMES_TO_LOWER_CASE="FALSE" NAMES_TO_UPPER_CASE="FALSE" SHOW_SKIPPED_PACKAGES="FALSE" VERBOSE="FALSE"/>
+  </GENERATOR>
+</APPLICATION>

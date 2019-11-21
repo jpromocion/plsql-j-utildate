@@ -1,0 +1,737 @@
+<HTML xmlns:lxslt="http://xml.apache.org/xslt" xmlns:exslt="http://exslt.org/common">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>plsql-j-utildate</TITLE>
+<LINK TITLE="Style" HREF="../stylesheet.css" TYPE="text/css" REL="stylesheet">
+<!--
+        sameCase=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+        namesLowerCase=FALSE
+        namesUpperCase=FALSE
+        namesDefaultCase=TRUE
+        defaultNamesCase=UPPER
+        namesFromCase=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+        namesToCase=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-->
+</HEAD>
+<BODY BGCOLOR="white">
+<TABLE CELLSPACING="0" CELLPADDING="1" WIDTH="100%" BORDER="0">
+<TR>
+<TD CLASS="NavBarRow1" COLSPAN="2">
+<TABLE CELLSPACING="3" CELLPADDING="0" BORDER="0">
+<TR VALIGN="top" ALIGN="center">
+<TD CLASS="NavBarRow1"><A HREF="../summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> &nbsp;</TD><TD CLASS="NavBarRow1"><A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> &nbsp;</TD><TD CLASS="NavBarRow1"><A HREF="../index-list.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> &nbsp;</TD><TD CLASS="NavBarRow1"><A HREF="../generator.html"><FONT CLASS="NavBarFont1"><B>Generator</B></FONT></A> &nbsp;</TD>
+</TR>
+</TABLE>
+</TD><TD rowspan="3" VALIGN="top" ALIGN="right"><EM><b>plsql-j-utildate</b></EM></TD>
+</TR>
+<TR>
+<TD CLASS="NavBarRow3" VALIGN="top"><FONT SIZE="-2">
+      SUMMARY:  <A HREF="#field_summary">FIELD</A> | <A HREF="#type_summary">TYPE</A> | <A HREF="#method_summary">METHOD</A></FONT></TD><TD CLASS="NavBarRow3" VALIGN="top"><FONT SIZE="-2">
+    DETAIL:  <A HREF="#field_detail">FIELD</A> | <A HREF="#type_detail">TYPE</A> | <A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<HR>
+<H2>
+<FONT SIZE="-1"></FONT>
+<BR>Package&nbsp;UTILDATE</H2>
+<P></P>
+<DL></DL>
+<HR>
+<P></P>
+<A NAME="field_summary"></A><A NAME="type_summary"></A><A NAME="method_summary"></A>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="1">
+<TR CLASS="TableHeadingColor">
+<TD COLSPAN="2"><FONT SIZE="+2"><B>Method Summary</B></FONT></TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="ADDYEARS"></A><TD><CODE><B><A HREF="#ADDYEARS(DATE,NUMBER)">ADDYEARS</A></B>(DATE1 IN DATE, NUMYEARS IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=PLS_INTEGER
+       localTypeName=
+       schema=
+       fieldType=PLS_INTEGER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->PLS_INTEGER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="AGE"></A><TD><CODE><B><A HREF="#AGE(DATE,DATE)">AGE</A></B>(BIRTHDATE IN DATE, CHECKDATE IN DATE DEFAULT SYSDATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="BUSINESSDAYSBETWEENDATES"></A><TD><CODE><B><A HREF="#BUSINESSDAYSBETWEENDATES(DATE,DATE)">BUSINESSDAYSBETWEENDATES</A></B>(DATE1 IN DATE, DATE2 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=BOOLEAN
+       localTypeName=
+       schema=
+       fieldType=BOOLEAN
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->BOOLEAN</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=3 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="DATEINRANGE"></A><TD><CODE><B><A HREF="#DATEINRANGE(DATE,DATE,DATE)">DATEINRANGE</A></B>(DATE1 IN DATE, STARDATE IN DATE, ENDDATE IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=VARCHAR2
+       localTypeName=
+       schema=
+       fieldType=VARCHAR2
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->VARCHAR2</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="DATESTRING"></A><TD><CODE><B><A HREF="#DATESTRING(DATE)">DATESTRING</A></B>(DATE1 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="DAYSBETWEENDATES"></A><TD><CODE><B><A HREF="#DAYSBETWEENDATES(DATE,DATE)">DAYSBETWEENDATES</A></B>(DATE1 IN DATE, DATE2 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="EXACTYEARSBETWEENDATES"></A><TD><CODE><B><A HREF="#EXACTYEARSBETWEENDATES(DATE,DATE)">EXACTYEARSBETWEENDATES</A></B>(DATE1 IN DATE, DATE2 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="GETEASTERSUNDAY"></A><TD><CODE><B><A HREF="#GETEASTERSUNDAY(NUMBER)">GETEASTERSUNDAY</A></B>(YEAR IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="GETENDEASTERHOLIDAYS"></A><TD><CODE><B><A HREF="#GETENDEASTERHOLIDAYS(NUMBER)">GETENDEASTERHOLIDAYS</A></B>(YEAR IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="GETSTARTEASTERHOLIDAYS"></A><TD><CODE><B><A HREF="#GETSTARTEASTERHOLIDAYS(NUMBER)">GETSTARTEASTERHOLIDAYS</A></B>(YEAR IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="HOURTONUMBER"></A><TD><CODE><B><A HREF="#HOURTONUMBER(DATE)">HOURTONUMBER</A></B>(DATE1 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="MONTHSBETWEENDATES"></A><TD><CODE><B><A HREF="#MONTHSBETWEENDATES(DATE,DATE)">MONTHSBETWEENDATES</A></B>(DATE1 IN DATE, DATE2 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="NEXTDATEBUSINESSDAY"></A><TD><CODE><B><A HREF="#NEXTDATEBUSINESSDAY(DATE,NUMBER)">NEXTDATEBUSINESSDAY</A></B>(DATE1 IN DATE, DAYS IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="NUMBERTOHOUR"></A><TD><CODE><B><A HREF="#NUMBERTOHOUR(NUMBER)">NUMBERTOHOUR</A></B>(NUM IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="SECONDTODAYS"></A><TD><CODE><B><A HREF="#SECONDTODAYS(NUMBER)">SECONDTODAYS</A></B>(SECONDS IN NUMBER)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="SEMESTERDATE"></A><TD><CODE><B><A HREF="#SEMESTERDATE(DATE)">SEMESTERDATE</A></B>(DATE1 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=0 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><TD><CODE><B><A HREF="#TODAY">TODAY</A></B>()</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=1 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="TRIMESTERDATE"></A><TD><CODE><B><A HREF="#TRIMESTERDATE(DATE)">TRIMESTERDATE</A></B>(DATE1 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+<TR CLASS="TableRowColor">
+<TD WIDTH="1%" VALIGN="top" ALIGN="right"><FONT SIZE="-1"><CODE>&nbsp;<!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER</CODE></FONT></TD>
+<!-- 
+		siblingCount=0 
+		argumentCount=2 
+		predecessorCount=0 
+		siblingNoArgumentCount=0--><A NAME="YEARSBETWEENDATES"></A><TD><CODE><B><A HREF="#YEARSBETWEENDATES(DATE,DATE)">YEARSBETWEENDATES</A></B>(DATE1 IN DATE, DATE2 IN DATE)</CODE>
+<BR>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </TD>
+</TR>
+</TABLE>
+<P></P>
+<A NAME="trigger_summary"></A><A NAME="field_detail"></A><A NAME="type_detail"></A><A NAME="method_detail"></A>
+<TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="1">
+<TR CLASS="TableHeadingColor">
+<TD COLSPAN="1"><FONT SIZE="+2"><B>Method Detail</B></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="ADDYEARS(DATE,NUMBER)"></A>
+<H3>ADDYEARS</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>ADDYEARS</B>(DATE1 IN DATE, <BR>               NUMYEARS IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="AGE(DATE,DATE)"></A>
+<H3>AGE</H3>
+<PRE> <!--
+       schemaName=
+       typeName=PLS_INTEGER
+       localTypeName=
+       schema=
+       fieldType=PLS_INTEGER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->PLS_INTEGER <B>AGE</B>(BIRTHDATE IN DATE, <BR>                 CHECKDATE IN DATE DEFAULT SYSDATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="BUSINESSDAYSBETWEENDATES(DATE,DATE)"></A>
+<H3>BUSINESSDAYSBETWEENDATES</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>BUSINESSDAYSBETWEENDATES</B>(DATE1 IN DATE, <BR>                                 DATE2 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="DATEINRANGE(DATE,DATE,DATE)"></A>
+<H3>DATEINRANGE</H3>
+<PRE> <!--
+       schemaName=
+       typeName=BOOLEAN
+       localTypeName=
+       schema=
+       fieldType=BOOLEAN
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->BOOLEAN <B>DATEINRANGE</B>(DATE1 IN DATE, <BR>                     STARDATE IN DATE, <BR>                     ENDDATE IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="DATESTRING(DATE)"></A>
+<H3>DATESTRING</H3>
+<PRE> <!--
+       schemaName=
+       typeName=VARCHAR2
+       localTypeName=
+       schema=
+       fieldType=VARCHAR2
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->VARCHAR2 <B>DATESTRING</B>(DATE1 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="DAYSBETWEENDATES(DATE,DATE)"></A>
+<H3>DAYSBETWEENDATES</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>DAYSBETWEENDATES</B>(DATE1 IN DATE, <BR>                         DATE2 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="EXACTYEARSBETWEENDATES(DATE,DATE)"></A>
+<H3>EXACTYEARSBETWEENDATES</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>EXACTYEARSBETWEENDATES</B>(DATE1 IN DATE, <BR>                               DATE2 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="GETEASTERSUNDAY(NUMBER)"></A>
+<H3>GETEASTERSUNDAY</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>GETEASTERSUNDAY</B>(YEAR IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="GETENDEASTERHOLIDAYS(NUMBER)"></A>
+<H3>GETENDEASTERHOLIDAYS</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>GETENDEASTERHOLIDAYS</B>(YEAR IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="GETSTARTEASTERHOLIDAYS(NUMBER)"></A>
+<H3>GETSTARTEASTERHOLIDAYS</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>GETSTARTEASTERHOLIDAYS</B>(YEAR IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="HOURTONUMBER(DATE)"></A>
+<H3>HOURTONUMBER</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>HOURTONUMBER</B>(DATE1 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="MONTHSBETWEENDATES(DATE,DATE)"></A>
+<H3>MONTHSBETWEENDATES</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>MONTHSBETWEENDATES</B>(DATE1 IN DATE, <BR>                           DATE2 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="NEXTDATEBUSINESSDAY(DATE,NUMBER)"></A>
+<H3>NEXTDATEBUSINESSDAY</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>NEXTDATEBUSINESSDAY</B>(DATE1 IN DATE, <BR>                          DAYS IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="NUMBERTOHOUR(NUMBER)"></A>
+<H3>NUMBERTOHOUR</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>NUMBERTOHOUR</B>(NUM IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="SECONDTODAYS(NUMBER)"></A>
+<H3>SECONDTODAYS</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>SECONDTODAYS</B>(SECONDS IN NUMBER)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="SEMESTERDATE(DATE)"></A>
+<H3>SEMESTERDATE</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>SEMESTERDATE</B>(DATE1 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="TODAY"></A>
+<H3>TODAY</H3>
+<PRE> <!--
+       schemaName=
+       typeName=DATE
+       localTypeName=
+       schema=
+       fieldType=DATE
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->DATE <B>TODAY</B>()</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="TRIMESTERDATE(DATE)"></A>
+<H3>TRIMESTERDATE</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>TRIMESTERDATE</B>(DATE1 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="YEARSBETWEENDATES(DATE,DATE)"></A>
+<H3>YEARSBETWEENDATES</H3>
+<PRE> <!--
+       schemaName=
+       typeName=NUMBER
+       localTypeName=
+       schema=
+       fieldType=NUMBER
+       synonymsFile=,,--><!--GenerateTypeLink: default reached-->NUMBER <B>YEARSBETWEENDATES</B>(DATE1 IN DATE, <BR>                          DATE2 IN DATE)</PRE>
+<DL>
+<DD></DD>
+<DD>
+<DL></DL>
+</DD>
+<P></P>
+<DL></DL>
+</DL>
+<HR>
+<A NAME="trigger_detail"></A>
+<TABLE CELLSPACING="0" CELLPADDING="1" WIDTH="100%" BORDER="0">
+<TR>
+<TD CLASS="NavBarRow1" COLSPAN="2">
+<TABLE CELLSPACING="3" CELLPADDING="0" BORDER="0">
+<TR VALIGN="top" ALIGN="center">
+<TD CLASS="NavBarRow1"><A HREF="../summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> &nbsp;</TD><TD CLASS="NavBarRow1"><A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> &nbsp;</TD><TD CLASS="NavBarRow1"><A HREF="../index-list.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> &nbsp;</TD><TD CLASS="NavBarRow1"><A HREF="../generator.html"><FONT CLASS="NavBarFont1"><B>Generator</B></FONT></A> &nbsp;</TD>
+</TR>
+</TABLE>
+</TD><TD rowspan="3" VALIGN="top" ALIGN="right"><EM><b>plsql-j-utildate</b></EM></TD>
+</TR>
+<TR>
+<TD CLASS="NavBarRow3" VALIGN="top"><FONT SIZE="-2">
+      SUMMARY:  <A HREF="#field_summary">FIELD</A> | <A HREF="#type_summary">TYPE</A> | <A HREF="#method_summary">METHOD</A></FONT></TD><TD CLASS="NavBarRow3" VALIGN="top"><FONT SIZE="-2">
+    DETAIL:  <A HREF="#field_detail">FIELD</A> | <A HREF="#type_detail">TYPE</A> | <A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<HR>
+</BODY>
+</HTML>
